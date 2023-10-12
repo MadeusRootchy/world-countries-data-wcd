@@ -1,8 +1,11 @@
+import './index.css';
+import CountryList from './Components/CountryList';
 
-function App() {
+
+const App = () => {
   return (
     <div className="App">
-        World countries data
+        <CountryList />
     </div>
   );
 }

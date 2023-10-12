@@ -1,0 +1,55 @@
+:root{
+    --dark-blue: #2c2c54;
+    --fluo-red: #ff5252;
+    --light-blue: #34ace0;
+    --more-red: #b33939;
+}
+
+*{
+    padding: 0;
+    margin: 0;
+}
+
+
+/* country list & country */
+.country-list{
+    width: 80%;
+    margin: auto;
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+
+    outline: 1px solid gray;
+}
+
+
+.country{
+    width: 300px;
+    height: 400px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    flex: 1; /* distribute 1 even space betwen each item*/
+    
+    outline: 1px solid red;
+}
+
+
+.country .flag{
+    width: 250px;
+    height: 150px;
+    padding: 5px;
+    margin: 20px;
+    order: -1; /* this item will always be on top */
+    outline: 1px solid purple;
+}
+
+.country .flag img{
+    width: 240px;
+    height: 140px;
+      
+}
+.country .info span{
+    font-weight: bold;
+}

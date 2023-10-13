@@ -1,35 +1,22 @@
-import React from "react";
-import useFetch from "../UseFetch";
-const Country = () => {
-  const url = 'https://restcountries.com/v3.1/all';
-  const { data, isLoading, error } = useFetch({ url }); 
+import { useState } from "react";
 
-  const commonName = (data) => {
-    return data.name.common;
-  };
+const Country = ({country, languages}) => {
 
-  console.log(commonName);
+  const [lang, setLang] = useState([])
+  
 
-  if (isLoading) {
-    return <p>Loading...</p>;
-  }
-
-  if (error) {
-    return <p>Fatal error .</p>;
-  }
 
   return (
-    
-    <div className="country" title="This country is ...">
+    <div className="country" title={country.alt}>
       <div className="flag">
-        <img src="" alt="" />
+        <img src={country.flags.png} alt="" />
       </div>
       <div className="info">
-        <h3><span>Name:</span>{data[0]?.name.common}</h3>
-        <p><span>Capital:</span>{data[0]?.capital}</p>
-        <p><span>Languages:</span> {data[0]?.languages.fra}</p>
-        {/* <p><span>Pupulation:</span>{data[0]?.population}</p> */}
-        <p><span>Currency:</span> {data[0]?.currencies.XPF.name} {data[0]?.currencies.XPF.symbol}</p>
+        <h3>{country.name.common}</h3>
+        <p><span>Capital : </span>{country.capital}</p>
+        {/* <p><span>Languages : </span>{languages}</p> */}
+        <p><span>Population : </span>{country.population} </p>
+        {/* <p><span>Currency : {country.currencies}</span></p> */}
         
       </div>
     </div>
@@ -37,3 +24,4 @@ const Country = () => {
 };
 
 export default Country;
+

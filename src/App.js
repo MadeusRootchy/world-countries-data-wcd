@@ -1,6 +1,4 @@
-import './index.css';
 import CountryList from './Components/CountryList';
-
 
 const App = () => {
   return (

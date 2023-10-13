@@ -1,17 +1,22 @@
 import Country from "./Country";
+import useFetch from "../useFetch";
 
+const CountryList = ({country}) => {
 
-const CountryList = ({}) => {
-    
-    
+    const url = 'https://restcountries.com/v3.1/all';
+    const { data, isLoading, error } = useFetch(url); 
+
+    console.log(data)
     return (
-        <div className="country-list">
-            <Country />
-            <Country />
-            <Country />
-            <Country />
-            <Country />
-        </div>
+        !isLoading ? (
+            <div className="country-list">
+                {
+                    data.map((country) => (
+                        <Country country={country} key={country.cca2}  languages={country.languages}/>
+                    ))
+                }
+            </div>
+        ) : <p>Loading...</p>
     );
 }
  

@@ -1,23 +1,42 @@
 import { useState } from "react";
 
-const Country = ({country, languages}) => {
+const Country = ({country, languages, currencies}) => {
 
-  const [lang, setLang] = useState([])
-  
+  const lang = [];
+  const currency = [];
+
+  for (const key in languages) {
+    if (languages.hasOwnProperty(key)) {
+      lang.push(languages[key]);
+    }
+  }
+
+  for (const key in currencies) {
+    if (currencies.hasOwnProperty(key)) {
+      currency.push(currencies[key]);
+    }
+  }
 
 
   return (
     <div className="country" title={country.alt}>
       <div className="flag">
-        <img src={country.flags.png} alt="" />
+        <img src={country.flags.png} alt=""/>
       </div>
       <div className="info">
-        <h3>{country.name.common}</h3>
+        <h2 className="country-name">{country.name.common}</h2>
         <p><span>Capital : </span>{country.capital}</p>
-        {/* <p><span>Languages : </span>{languages}</p> */}
-        <p><span>Population : </span>{country.population} </p>
-        {/* <p><span>Currency : {country.currencies}</span></p> */}
-        
+        <p><span>Language(s) : </span>
+        {
+          lang.map(l => { return <i>{`${l}.  `}</i>})
+        }
+        </p>
+        <p><span>Population : </span>{country.population}  hab.</p>
+        <p><span>Currency(cies) : </span>
+        {
+          currency.map(c => { return <i>{`${c.name} (${c.symbol})`}</i>})
+        }
+        </p>
       </div>
     </div>
   );

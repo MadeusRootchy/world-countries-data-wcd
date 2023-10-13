@@ -12,7 +12,12 @@ const CountryList = ({country}) => {
             <div className="country-list">
                 {
                     data.map((country) => (
-                        <Country country={country} key={country.cca2}  languages={country.languages}/>
+                        <Country 
+                        country={country} 
+                        key={country.cca2}  
+                        languages={country.languages}
+                        currencies={country.currencies}
+                        />
                     ))
                 }
             </div>

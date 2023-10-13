@@ -3,11 +3,53 @@
     --fluo-red: #ff5252;
     --light-blue: #34ace0;
     --more-red: #b33939;
+    --orange: #ff793f;
+    --swan-white: #f7f1e3;
+    --gray: #d1ccc0;
 }
 
 *{
     padding: 0;
     margin: 0;
+}
+
+
+/* search */
+.search form {
+    width: 80%;
+    margin: auto;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 10px;
+}
+
+.search input{
+    width: 800px;
+    height: 40px;
+    background-color: var(--swan-white);
+    color: var(--dark-blue);
+    font-weight: bold;
+    font-size: 18px;
+    padding: 10px;
+    border: 5%;
+    outline: none;
+    border: none;
+}
+
+.search button{
+    width: 100px;
+    height: 60px;
+    background-color: var(--orange);
+    color: var(--dark-blue);
+    margin: 0 10px;
+    font-weight: bold;
+    font-size: 20px;
+    padding: 5px;
+    border: 5%;
+    outline: none;
+    border: none;
+
 }
 
 
@@ -18,21 +60,29 @@
     display: flex;
     justify-content: space-between;
     flex-wrap: wrap;
-
-    outline: 1px solid gray;
 }
 
 
 .country{
     width: 300px;
-    height: 400px;
+    height: 420px;
+    padding: 0 4px;
+    margin: 7px;
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    flex: 1; /* distribute 1 even space betwen each item*/
-    
-    outline: 1px solid red;
+    gap: 1;
+    /* flex: 1; */
+    box-shadow: 3px 5px 3px var(--swan-white);
+    border-radius: 5%;
+    box-sizing: border-box;
+    cursor: pointer;
+}
+
+.country:hover{
+    box-shadow: 5px 5px 5px var(--gray);
+    transition: ease-in-out .5s;
 }
 
 
@@ -42,14 +92,35 @@
     padding: 5px;
     margin: 20px;
     order: -1; /* this item will always be on top */
-    outline: 1px solid purple;
+    /* outline: 1px solid purple; */
+
+    border-radius: 1%;
+
 }
+
+.country img:hover{
+    box-shadow: 2px 3px 2px var(--swan-white);
+}
+
 
 .country .flag img{
     width: 240px;
     height: 140px;
       
 }
+
 .country .info span{
     font-weight: bold;
+    color: var(--dark-blue);
+    font-size: 18px;
 }
+
+.country .country-name{
+    text-align: center;
+    font-size: 28px;
+    color: var(--more-red);
+    font-weight: bold;
+    border-bottom: 1px solid var(--fluo-red);
+    margin-bottom:  10px;
+}
+

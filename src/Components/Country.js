@@ -19,7 +19,7 @@ const Country = ({country, languages, currencies}) => {
 
 
   return (
-    <div className="country" title={country.alt}>
+    <div className="country" key={country.cca2}>
       <div className="flag">
         <img src={country.flags.png} alt=""/>
       </div>

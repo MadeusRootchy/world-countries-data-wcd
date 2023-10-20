@@ -1,6 +1,7 @@
 import { useEffect, useState } from "react";
 import axios from 'axios';
 import Country from './Country';
+import CountryStats from "./CountryStats";
 
 const CountryList = () => {
     const [data, setData] = useState([]);
@@ -94,6 +95,7 @@ const CountryList = () => {
                     ))
                 }
             </div>
+            <div>{<CountryStats data = {data}/>}</div>
 
         </div>
     );

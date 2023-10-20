@@ -150,3 +150,11 @@
     margin-bottom:  10px;
 }
 
+.country-stats {
+    width: 80%;
+    margin: auto;
+    display: block;
+    border: #34ace0 5px solid;
+    justify-content: center;
+    align-items: center;
+}

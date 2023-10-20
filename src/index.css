@@ -47,9 +47,8 @@
     width: 800px;
     height: 200px;
     padding: 20px;
-    margin: 20px 50px;
+    margin: 20px 40px;
     align-self: center;
-    background: #f7f1e35e;
     color: var(--more-red);
     box-sizing: border-box;
 }
@@ -86,6 +85,7 @@
     display: flex;
     justify-content: space-between;
     flex-wrap: wrap;
+    
 }
 
 
@@ -98,6 +98,7 @@
     flex-direction: column;
     justify-content: center;
     align-items: center;
+    border: 1px solid var(--swan-white);
     gap: 1;
     /* flex: 1; */
     box-shadow: 3px 5px 3px var(--swan-white);
@@ -132,6 +133,7 @@
 .country .flag img{
     width: 240px;
     height: 140px;
+    box-shadow: 0px 0px 20px  var(--swan-white);
       
 }
 
@@ -150,3 +152,23 @@
     margin-bottom:  10px;
 }
 
+.anchor{
+    padding: 5px;
+    text-align: center;
+    margin: 20px;
+
+    
+}
+
+.anchor a{
+    font-size: 28px;
+    text-decoration: none;
+    font-weight: bold;
+    border: 1px solid var(--orange);
+    border-radius: 50px;
+    padding: 10px 20px;
+    cursor: pointer;
+    color: var(--swan-white);
+    background-color: var(--more-red);
+    
+}

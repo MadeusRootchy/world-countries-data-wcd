@@ -59,10 +59,10 @@ const CountryList = () => {
 
         })
         setMatchCount(filteredData.length)
-        setNewData(filteredData)
+        setNewData(filteredData.sort())
     }, [entry.length])
 
-
+    
 
     return (
         <div>
@@ -81,7 +81,11 @@ const CountryList = () => {
                     />
                 </form>
             </div>
-            
+            <div className="anchor">
+                <a href="#country-stats">
+                    Go to stats
+                </a>
+            </div>
             <div className="country-list">
                 {
                     newData.map((country) => (

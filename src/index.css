@@ -254,6 +254,47 @@
     width: 300px;
 }
 
+header{
+    background-color: var(--dark-blue);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 20px;  
+}
+
+header a{
+    font-size: 20px;
+    color: var(--swan-white);
+}
+
+footer{
+    background-color: var(--dark-blue);
+    color: var(--swan-white);
+    font-weight: bold;
+    font-size: 16px;
+    display: flex;
+    padding: 10px;
+    justify-content: space-evenly;
+}
+ footer nav{
+    padding: 10px;
+    border-right: 5px solid var(--orange);
+ }
+
+footer ul li{
+    list-style-type: none;
+    text-transform: uppercase;
+    margin: 10px;
+    
+}
+
+footer ul li a{
+    color: var(--swan-white);
+    text-decoration: none;
+}
+
+
+/* ------- */
 
 @media(max-width: 600px){
     .search{

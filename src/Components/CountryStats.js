@@ -1,21 +1,12 @@
-import { useEffect, useState } from "react";
+import { useState } from "react";
+import CountryStatRow from "./CountryStatRow";
 
 
 
-const CountryStats = ({data}) => {
+const CountryStats = ({data, totalPopulation}) => {
 
   const [flag, setFlag] = useState(true)
-
-  let populationArrray = [];
-
-  data.map(country =>(    
-  populationArrray.push(country.population)
-      ));
-
-  const  totalPopulation = populationArrray
-  .reduce((acc,population) =>acc + population,0);
-
-    
+ 
 
 const sortedPopulation = [...data]; 
 sortedPopulation.sort((a, b) => b.population - a.population).splice(10, sortedPopulation.length);
@@ -52,30 +43,43 @@ return (
       <button onClick={() => {setFlag(true)}}>Population</button>      
       <button onClick={() => {setFlag(false)}}>Languages</button>
     </div>
+
     <div className="top-10">
-      {flag ? (<div className="top-10-pop">
+      { flag ? 
+      (
+      <div className="top-10-pop">
         <h1>Top 10 Populations</h1>
-        <p><span>World's Population : </span> {totalPopulation.toLocaleString()} x.</p>
-          {
-            sortedPopulation.map((country) => (
-            <div key={country.name.common}>
-              <p><span>{country.name.common} : </span>{country.population.toLocaleString()} x.</p>
-            </div>
-            ))
-          }  
+        <CountryStatRow
+        name={"World's Population"}
+        value={totalPopulation}
+        percent={100}
+        />
+        {
+        sortedPopulation.map((country) => (
+        <CountryStatRow
+        key={country.name.common}
+        name={country.name.common}
+        value={country.population.toLocaleString()}
+        percent={100*country.population / totalPopulation}
+        />
+        ))
+        }  
       </div>
-          ) : (
-        <div className="top-10-lang">
-            <h1>Top 10 Languages</h1>
-            {
-              languagesList.map((language) =>(
-              <div key={language.occurrences}>
-                <p><span>{language.language} : </span> {language.occurrences}  countries.</p>
-              </div>
-              ))
-            } 
-        </div>
-        )}
+      ) : (
+      <div className="top-10-lang">
+        <h1>Top 10 Languages</h1>
+        {
+        languagesList.map((language) =>(
+        <CountryStatRow
+        key={language.occurrences}
+        name={language.language}
+        value={language.occurrences}
+        percent={language.occurrences}
+        />
+        ))
+        } 
+      </div>
+      )}
   </div>
   </div>
   );

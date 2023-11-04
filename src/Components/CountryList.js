@@ -1,5 +1,7 @@
 import { useEffect, useState } from "react";
 import axios from 'axios';
+import {ImStatsDots} from 'react-icons/im';
+import {SiGooglehome} from 'react-icons/si';
 import Country from './Country';
 import CountryStats from "./CountryStats";
 
@@ -63,11 +65,21 @@ const CountryList = () => {
         setNewData(filteredData.sort())
     }, [entry.length])
 
+
+    
+    let populationTotal = [];
+
+    data.map(country =>(    
+    populationTotal.push(country.population)
+    ));
+
+    const  totalPopulation = populationTotal
+    .reduce((acc,population) => acc + population,0);  
     
 
     return (
         <div>
-            <div className="search">
+            <div className="search" id="search">
                 <div className="banner">
                     <h2>Countries of the world</h2>
                     <p>From {data.length} countries</p>
@@ -84,9 +96,10 @@ const CountryList = () => {
             </div>
             <div className="anchor">
                 <a href="#country-stats">
-                    Go to stats
+                 <ImStatsDots />
                 </a>
             </div>
+
             <div className="country-list">
                 {
                     newData.map((country) => (
@@ -99,7 +112,20 @@ const CountryList = () => {
                     ))
                 }
             </div>
-            <div>{<CountryStats data = {data}/>}</div>
+            
+            <div className="anchor">
+                <a href="#search">
+                 <SiGooglehome />
+                </a>
+            </div>
+            <div>
+            {
+                <CountryStats 
+                data = {newData} 
+                totalPopulation={totalPopulation}
+                />
+            }
+            </div>
 
         </div>
     );

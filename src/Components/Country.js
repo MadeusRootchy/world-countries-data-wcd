@@ -31,7 +31,7 @@ const Country = ({country, languages, currencies}) => {
           lang.map(l => { return <i>{`${l}.  `}</i>})
         }
         </p>
-        <p><span>Population : </span>{country.population}  hab.</p>
+        <p><span>Population : </span>{country.population.toLocaleString()}  hab.</p>
         <p><span>Currency(cies) : </span>
         {
           currency.map(c => { return <i>{`${c.name} (${c.symbol})`}</i>})
